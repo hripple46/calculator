@@ -112,31 +112,3 @@ button9.addEventListener("click", () => display9());
 
 let button0 = document.querySelector("#button0");
 button0.addEventListener("click", () => display0());
-
-//adding event listener to number buttons and operaton buttons (aside from =)
-//let numberBtn = document.querySelectorAll("button");
-
-/*for (let i in numberBtn) {
-  numberBtn[i].addEventListener("click", displayInput);
-
-  function displayInput() {
-    console.log(numberBtn[i].value);
-    if (numberBtn[i].value == "+") {
-      storedOperator = "+";
-    } else if (numberBtn[i].value == "-") {
-    } else if (numberBtn[i].value == "X") {
-    } else if (numberBtn[i].value == "/") {
-    } else if (numberBtn[i].value == "=") {
-      operate(displayValue, storedValue, storedOperator);
-    } else {
-      displayValue += numberBtn[i].value;
-
-      document.querySelector("#displayBar").innerText = displayValue;
-    }
-
-    if (displayValue != null) {
-      storedValue = displayValue;
-      displayValue = "";
-    }
-  }
-}*/
