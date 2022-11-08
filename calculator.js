@@ -52,27 +52,37 @@ function display0() {
   displayValue += "0";
   document.querySelector("#displayBar").innerText = displayValue;
 }
+function equals() {
+  let displayValueNumber = parseInt(displayValue);
+  let storedValueNumber = parseInt(storedValue);
+  let displayValueAnswer = `${displayValueNumber + storedValueNumber}`;
+  alert(displayValueAnswer);
+  document.querySelector("#displaybar").textContent = "";
+  document.querySelector("#displaybar").textContent = displayValueNumber;
+}
 
 function add() {
-  console.log("It worked!");
-  //return a + b;
+  storedValue = displayValue;
+  displayValue = "";
+  storedOperator = "+";
 }
 
-function subtract(a, b) {
-  return a - b;
-}
+/*function equals() {
+  let displayValueNumber = parseInt(displayValue);
+  let storedValueNumber = parseInt(storedValue);
+  let displayValueAnswer = `${displayValueNumber + storedValueNumber}`;
+  alert(displayValueAnswer);
+  document.querySelector("#displaybar").innerText = `${displayValueAnswer}`;
+}*/
 
-function multiply(a, b) {
-  return a * b;
-}
-
-function divide(a, b) {
-  return a / b;
-}
-
+//operator buttons
 let addBtn = document.querySelector("#addBtn");
 addBtn.addEventListener("click", () => add());
 
+let equalsBtn = document.querySelector("#equalsButton");
+equalsBtn.addEventListener("click", () => equals());
+
+//number buttons
 let button1 = document.querySelector("#button1");
 button1.addEventListener("click", () => display1());
 
