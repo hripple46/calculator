@@ -72,6 +72,13 @@ function add() {
   storedOperator = "+";
 }
 
+function clear() {
+  storedValue = "";
+  displayValue = "";
+  storedOperator = "";
+  document.querySelector("#displayBar").innerText = "";
+}
+
 /*function equals() {
   let displayValueNumber = parseInt(displayValue);
   let storedValueNumber = parseInt(storedValue);
@@ -86,6 +93,9 @@ addBtn.addEventListener("click", () => add());
 
 let equalsBtn = document.querySelector("#equalsButton");
 equalsBtn.addEventListener("click", () => equals());
+
+let clearBtn = document.querySelector("#clearBtn");
+clearBtn.addEventListener("click", () => clear());
 
 //number buttons
 let button1 = document.querySelector("#button1");
