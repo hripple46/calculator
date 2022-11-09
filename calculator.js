@@ -55,11 +55,22 @@ function display0() {
   displayValue += "0";
   document.querySelector("#displayBar").innerText = displayValue;
 }
+
+//this function displays the result
 function equals() {
   document.querySelector("#displayBar").innerText = "";
   displayValueNumber = parseInt(displayValue);
   storedValueNumber = parseInt(storedValue);
-  displayValue = displayValueNumber + storedValueNumber;
+  //using conditionals to check the stored operator and trigger the correct operator
+  if (storedOperator == "+") {
+    displayValue = displayValueNumber + storedValueNumber;
+  } else if (storedOperator == "-") {
+    displayValue = storedValueNumber - displayValueNumber;
+  } else if (storedOperator == "x") {
+    displayValue = storedValueNumber * displayValueNumber;
+  } else if (storedOperator == "/") {
+    displayValue = storedValueNumber / displayValueNumber;
+  }
   let newResult = document.createElement("p");
   newResult.setAttribute("id", "newResult");
   newResult.innerText = displayValue;
@@ -70,6 +81,24 @@ function add() {
   storedValue = displayValue;
   displayValue = "";
   storedOperator = "+";
+}
+
+function subtract() {
+  storedValue = displayValue;
+  displayValue = "";
+  storedOperator = "-";
+}
+
+function multiply() {
+  storedValue = displayValue;
+  displayValue = "";
+  storedOperator = "x";
+}
+
+function divide() {
+  storedValue = displayValue;
+  displayValue = "";
+  storedOperator = "/";
 }
 
 function clear() {
@@ -96,6 +125,15 @@ equalsBtn.addEventListener("click", () => equals());
 
 let clearBtn = document.querySelector("#clearBtn");
 clearBtn.addEventListener("click", () => clear());
+
+let minusBtn = document.querySelector("#minusBtn");
+minusBtn.addEventListener("click", () => subtract());
+
+let multiplyBtn = document.querySelector("#multiplyBtn");
+multiplyBtn.addEventListener("click", () => multiply());
+
+let divideBtn = document.querySelector("#divideBtn");
+divideBtn.addEventListener("click", () => divide());
 
 //number buttons
 let button1 = document.querySelector("#button1");
