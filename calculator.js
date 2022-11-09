@@ -2,6 +2,9 @@
 let displayValue = "";
 let storedValue = "";
 let storedOperator = "";
+let displayValueAnswer = "";
+let displayValueNumber = 0;
+let storedValueNumber = 0;
 
 //functions to display buttons on click
 function display1() {
@@ -53,12 +56,14 @@ function display0() {
   document.querySelector("#displayBar").innerText = displayValue;
 }
 function equals() {
-  let displayValueNumber = parseInt(displayValue);
-  let storedValueNumber = parseInt(storedValue);
-  let displayValueAnswer = `${displayValueNumber + storedValueNumber}`;
-  alert(displayValueAnswer);
-  document.querySelector("#displaybar").textContent = "";
-  document.querySelector("#displaybar").textContent = displayValueNumber;
+  document.querySelector("#displayBar").innerText = "";
+  displayValueNumber = parseInt(displayValue);
+  storedValueNumber = parseInt(storedValue);
+  displayValue = displayValueNumber + storedValueNumber;
+  let newResult = document.createElement("p");
+  newResult.setAttribute("id", "newResult");
+  newResult.innerText = displayValue;
+  document.querySelector("#displayBar").appendChild(newResult);
 }
 
 function add() {
