@@ -5,6 +5,7 @@ let storedOperator = "";
 let displayValueAnswer = "";
 let displayValueNumber = 0;
 let storedValueNumber = 0;
+let displayValueDecimal = 0;
 
 //functions to display buttons on click
 function display1() {
@@ -68,8 +69,14 @@ function equals() {
     displayValue = storedValueNumber - displayValueNumber;
   } else if (storedOperator == "x") {
     displayValue = storedValueNumber * displayValueNumber;
+    displayValue = displayValue.toFixed(5);
   } else if (storedOperator == "/") {
-    displayValue = storedValueNumber / displayValueNumber;
+    if (displayValueNumber == 0) {
+      displayValue = "Not Today, Satan.";
+    } else {
+      displayValue = storedValueNumber / displayValueNumber;
+      displayValue = displayValue.toFixed(5);
+    }
   }
   let newResult = document.createElement("p");
   newResult.setAttribute("id", "newResult");
@@ -78,24 +85,36 @@ function equals() {
 }
 
 function add() {
+  if (storedOperator != "") {
+    equals();
+  }
   storedValue = displayValue;
   displayValue = "";
   storedOperator = "+";
 }
 
 function subtract() {
+  if (storedOperator != "") {
+    equals();
+  }
   storedValue = displayValue;
   displayValue = "";
   storedOperator = "-";
 }
 
 function multiply() {
+  if (storedOperator != "") {
+    equals();
+  }
   storedValue = displayValue;
   displayValue = "";
   storedOperator = "x";
 }
 
 function divide() {
+  if (storedOperator != "") {
+    equals();
+  }
   storedValue = displayValue;
   displayValue = "";
   storedOperator = "/";
@@ -105,6 +124,7 @@ function clear() {
   storedValue = "";
   displayValue = "";
   storedOperator = "";
+  displayValueDecimal = 0;
   document.querySelector("#displayBar").innerText = "";
 }
 
